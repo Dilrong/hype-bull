@@ -1,0 +1,267 @@
+/* Import a pixelated arcade font for more casino vibes */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 🎰 Main game container */
+.container {
+  display: inline-block;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ffcc00);
+  box-shadow: 0px 0px 30px rgba(255, 0, 255, 0.8);
+  border: 3px solid white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Title text with glitch effect */
+.glitch {
+  font-size: 32px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 10px #ff00ff, -2px -2px 10px #00ffff;
+  animation: glitch 0.2s infinite alternate;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px 10px #ff00ff, -2px -2px 10px #00ffff;
+  }
+  100% {
+    text-shadow: -2px -2px 10px #ff00ff, 2px 2px 10px #00ffff;
+  }
+}
+
+/* 📈📉 Price display */
+#entry-price,
+#current-price,
+#result,
+#score {
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+#current-price {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+/* 🔺 Price going up (green glow) */
+.price-up {
+  color: #00ff00;
+  text-shadow: 0px 0px 15px #00ff00;
+}
+
+/* 🔻 Price going down (red glow) */
+.price-down {
+  color: #ff4444;
+  text-shadow: 0px 0px 15px #ff4444;
+}
+
+@keyframes rollNumbers {
+  0% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🎮 Slot Machine Spin Effect */
+.spinning span {
+  animation: rollNumbers 0.1s infinite alternate;
+}
+
+/* 🔥 Slot Machine Shake Effect (Only when losing) */
+.shake {
+  animation: shake 0.2s infinite alternate;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+/* ⚡ Flash Effect (Only when winning) */
+.flash {
+  animation: flash 0.1s infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: black;
+  }
+}
+
+/* 🎰 Slot Machine Wheel Spin Effect */
+.slot-spin {
+  animation: spin 0.5s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 🎮 Game graphic (Slot machine icon) */
+.game-graphic {
+  font-size: 80px;
+  margin: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* 🕹️ Buttons */
+button {
+  font-size: 20px;
+  padding: 15px 30px;
+  margin: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px black;
+}
+
+/* 🎰 LONG Button */
+.long-btn {
+  background: linear-gradient(45deg, #00ff00, #009900);
+  color: white;
+  box-shadow: 0px 0px 10px #00ff00;
+}
+
+.long-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 20px #00ff00;
+}
+
+/* 📉 SHORT Button */
+.short-btn {
+  background: linear-gradient(45deg, #ff0000, #990000);
+  color: white;
+  box-shadow: 0px 0px 10px #ff0000;
+}
+
+.short-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 20px #ff0000;
+}
+
+/* 🔄 Restart Button */
+.quick-restart-btn {
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  color: black;
+  font-size: 20px;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px #ffcc00;
+  transition: all 0.2s ease-in-out;
+}
+
+.quick-restart-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 20px white;
+}
+
+/* ⚡ Quick Restart Button */
+.quick-restart-btn {
+  background: linear-gradient(45deg, #ff00ff, #ff5500);
+  color: white;
+}
+
+/* ⚡ Quick Restart Button */
+.quick-restart-btn {
+  background: linear-gradient(45deg, #ff00ff, #ff5500);
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px #ff00ff;
+  transition: all 0.2s ease-in-out;
+}
+
+.quick-restart-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 20px white;
+}
+
+/* 🔥 Animation for result text */
+@keyframes resultTextEffect {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#result {
+  animation: resultTextEffect 0.5s infinite alternate;
+}
+
+/* 🎖️ Leaderboard Container */
+.leaderboard {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(45deg, #111, #222);
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* 🏆 Leaderboard Title */
+.leaderboard h2 {
+  font-size: 24px;
+  color: #ffcc00;
+  text-shadow: 2px 2px 10px #ffcc00;
+}
+
+/* 🎲 Leaderboard List */
+.leaderboard ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+/* 📜 Leaderboard Rankings */
+.leaderboard li {
+  font-size: 18px;
+  padding: 10px;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rank-1 {
+  color: gold;
+  font-weight: bold;
+}
+.rank-2 {
+  color: silver;
+}
+.rank-3 {
+  color: #cd7f32;
+} /* Bronze */
