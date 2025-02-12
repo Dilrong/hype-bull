@@ -49,7 +49,7 @@ const TradingGame = () => {
   useEffect(() => {
     const q = query(
       collection(db, "trading_records"),
-      orderBy("score", "desc"),
+      orderBy("totalScore", "desc"),
       limit(5)
     );
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -100,7 +100,7 @@ const TradingGame = () => {
       setResultMessage(`💀 YOU LOST! TOTAL SCORE: ${score} PTS`);
       setGameActive(false);
 
-      // 🔥 Save FINAL total score to Firestore (only when losing)
+      // 🔥 최종 점수를 Firestore에 저장
       await addDoc(collection(db, "trading_records"), {
         totalScore: score,
         timestamp: new Date(),
@@ -117,8 +117,8 @@ const TradingGame = () => {
 
   return (
     <div className="game-container">
-      <h1 className="glitch">HYPEBULL🎰🤑</h1>
-      <h2></h2>
+      <h1 className="glitch">HYPEBULL TRADING GAME 🎰🤑</h1>
+      <h2>Hyperliquid $HYPE is bullish.</h2>
       <div className="container">
         <p>Entry Price: {entryPrice !== null ? entryPrice.toFixed(2) : "🚫"}</p>
         <p id="current-price">
@@ -130,7 +130,6 @@ const TradingGame = () => {
           </span>
         </p>
 
-        {/* 🎰 Slot Machine Visuals */}
         <div className="game-graphic">
           {isRolling
             ? "🎰💰"
@@ -155,14 +154,16 @@ const TradingGame = () => {
           </>
         ) : (
           <>
+            <button className="reset-btn" onClick={resetGame}>
+              🔄 RESTART
+            </button>
             <button className="quick-restart-btn" onClick={resetGame}>
-              ⚡ TRY AGAIN!
+              ⚡ TRY AGAIN FAST!
             </button>
           </>
         )}
       </div>
 
-      {/* 🔥 Leaderboard Section */}
       <div className="leaderboard">
         <h2>🏆 TOP TRADERS 🏆</h2>
         <ul>
@@ -173,6 +174,12 @@ const TradingGame = () => {
           ))}
         </ul>
       </div>
+
+      <footer>
+        <a href="https://x.com/dilrong_" target="_blank" rel="noreferrer">
+          Made by dilrong
+        </a>
+      </footer>
     </div>
   );
 };
